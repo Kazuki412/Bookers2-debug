@@ -38,7 +38,6 @@
       </div>
       <% end %>
       <div>
-        <%= render 'layouts/errors', obj: @book %>
         <%= form_with model: [@book, @book_comment] do |f| %>
         <%= f.text_area :comment %><br>
         <%= f.submit "送信" %>
