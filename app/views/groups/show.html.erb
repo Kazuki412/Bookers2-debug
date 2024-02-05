@@ -1,1 +1,11 @@
-<h1>グループのshowページ</h1>
+<h3>Group Detail</h3>
+<table class="table">
+  <tbody>
+    <tr>
+      <td><%= image_tag @group.get_group_image, size: "50x50" %></td>
+      <td><%= @group.name %></td>
+      <td><%= @group.introduction %></td>
+      <td><%= link_to "Edit", edit_group_path(@group.id) %></td>
+    </tr>
+  </tbody>
+</table>

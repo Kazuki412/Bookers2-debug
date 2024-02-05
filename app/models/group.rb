@@ -8,4 +8,8 @@ class Group < ApplicationRecord
   def is_owned_by?(user)
     owner.id == user.id
   end
+
+  def get_group_image
+    (group_image.attached?) ? group_image: 'no_image.jpg'
+  end
 end
