@@ -1,0 +1,18 @@
+<h3>Create Group</h3>
+<%= form_with model: Group.new do |f| %>
+  <div>
+    <%= f.label :グループ名 %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :紹介文 %><br>
+    <%= f.text_area :introduction %>
+  </div>
+  <div>
+    <%= f.label :グループ画像 %><br>
+    <%= f.file_field :group_image %>
+  </div>
+  <div>
+    <%= f.submit "Create Group" %>
+  </div>
+<% end %>
