@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update]
 
   def new
     @group = Group.new
@@ -17,8 +19,11 @@ class GroupsController < ApplicationController
 
   def update
     group = Group.find(params[:id])
-    group.update(group_params)
-    redirect_to groups_path
+    if group.update(group_params)
+       redirect_to groups_path
+    else
+       render "index"
+    end
   end
 
   def destroy
@@ -38,4 +43,10 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, :introduction, :group_image)
   end
 
+  def ensure_correct_user
+     @group = Group.find(params[:id])
+     unless @group.owner.id == current_user.id
+       redirect_to groups_path
+     end
+  end
 end
