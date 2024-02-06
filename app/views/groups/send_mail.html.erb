@@ -1,0 +1,8 @@
+<h3>送信が完了しました</h3>
+<P>内容は以下のとおりです。</P>
+<div>
+  [タイトル]<%= @mail_title %>
+</div>
+<div>
+  [本文]<%= safe_join(@mail_content.split("\n"), tag(:br)) %>
+</div>
