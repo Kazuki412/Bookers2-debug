@@ -1,14 +1,30 @@
 <h3>Group Detail</h3>
 <table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>グループ名</th>
+      <th>紹介文</th>
+      <th>メンバー</th>
+      <th></th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td><%= image_tag @group.get_group_image, size: "50x50" %></td>
       <td><%= @group.name %></td>
       <td><%= @group.introduction %></td>
+      <% @group.users.each do |user| %>
+      <td>
+        <li><%= user.name %></li>
+      </td>
+      <% end %>
       <% if @group.owner.id == current_user.id %>
       <td><%= link_to "Edit", edit_group_path(@group.id) %></td>
+      <% elsif @group.include_user?(current_user) %>
+      <td><%= link_to "Leave this group", group_group_users_path(@group.id), method: :delete %></td>
       <% else %>
-      <td></td>
+      <td><%= link_to "Join this group", group_group_users_path(@group.id), method: :post %></td>
       <% end %>
     </tr>
   </tbody>
