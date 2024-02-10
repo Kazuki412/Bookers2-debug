@@ -19,6 +19,8 @@
           <td><%= @book.body %></td>
           <% if @book.category.present? %>
           <td><%= link_to @book.category, tagsearches_search_path(word: @book.category) %></td>
+          <% else %>
+          <td></td>
           <% end %>
           <td class="favorite-btn_<%= @book.id%>">
             <%= render 'favorites/favorite-btn', book: @book %>
@@ -33,6 +35,7 @@
           <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success" %></td>
           <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
           <% end %>
+          <td>閲覧数：<%= @book.view_counts.count %></td>
         </tr>
       </table>
       <div class="comment_list">
