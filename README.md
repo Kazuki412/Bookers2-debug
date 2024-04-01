@@ -1,24 +1,9 @@
-# README
+# 応用学習フェーズ「課題１〜９」
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 学習内容
+- デバッグ
+- いいね・コメント機能
+- フォロー/フォロワー機能
+- 検索機能(ActiveRecode)
+- いいね・コメント機能の非同期通信化
+- SNS/コミュニティサイトの機能の学習
